@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TddTetris", "TddTetris\TddTetris\TddTetris.csproj", "{FE03EC57-193C-4A0D-A7B5-A836AD3336C3}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "TddTetrisContent", "TddTetris\TddTetrisContent\TddTetrisContent.contentproj", "{7496C228-21BB-4843-9FC7-2E4963129580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4AE710E9-1C6A-40E4-84B7-24CAECBD815D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE03EC57-193C-4A0D-A7B5-A836AD3336C3}.Debug|x86.ActiveCfg = Debug|x86
+		{FE03EC57-193C-4A0D-A7B5-A836AD3336C3}.Debug|x86.Build.0 = Debug|x86
+		{FE03EC57-193C-4A0D-A7B5-A836AD3336C3}.Release|x86.ActiveCfg = Release|x86
+		{FE03EC57-193C-4A0D-A7B5-A836AD3336C3}.Release|x86.Build.0 = Release|x86
+		{7496C228-21BB-4843-9FC7-2E4963129580}.Debug|x86.ActiveCfg = Debug|x86
+		{7496C228-21BB-4843-9FC7-2E4963129580}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
