@@ -18,6 +18,11 @@ namespace TddTetris
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private Texture2D block;
+        private DateTime lastUpdateTime;
+        private Vector2 blockPos;
+        private int numberOfRows;
+        private Field field;
 
         public Game1()
         {
@@ -36,6 +41,9 @@ namespace TddTetris
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
+            lastUpdateTime = DateTime.Now;
+            blockPos = new Vector2(0, 0);
         }
 
         /// <summary>
@@ -48,6 +56,11 @@ namespace TddTetris
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            block = Content.Load<Texture2D>("Block");
+
+            numberOfRows = (GraphicsDevice.Viewport.Height - 60)/ block.Height;
+
+            field = new Field(12, numberOfRows);
         }
 
         /// <summary>
@@ -71,8 +84,19 @@ namespace TddTetris
                 this.Exit();
 
             // TODO: Add your update logic here
+            if ((DateTime.Now - lastUpdateTime).TotalMilliseconds > 500)
+            {
+                blockPos.Y++;
+                if (blockPos.Y >= numberOfRows)
+                {
+                    blockPos.Y = 0;
+                    blockPos.X++;
+                }
 
-            base.Update(gameTime);
+
+                lastUpdateTime = DateTime.Now;
+                base.Update(gameTime);
+            }
         }
 
         /// <summary>
@@ -84,6 +108,10 @@ namespace TddTetris
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(block, new Rectangle((int)blockPos.X*block.Width, (int)blockPos.Y*block.Height, block.Width, block.Height), Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
