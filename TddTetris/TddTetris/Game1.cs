@@ -23,6 +23,7 @@ namespace TddTetris
         private Vector2 blockPos;
         private int numberOfRows;
         private Field field;
+        private InputQueue inputQueue;
 
         public Game1()
         {
@@ -44,6 +45,7 @@ namespace TddTetris
 
             lastUpdateTime = DateTime.Now;
             blockPos = new Vector2(0, 0);
+            inputQueue = new InputQueue();
         }
 
         /// <summary>
@@ -79,9 +81,26 @@ namespace TddTetris
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            KeyboardState keyState = Keyboard.GetState();
+            var pressedKeys = keyState.GetPressedKeys().ToList<Keys>();
+
+            List<Keys> newlyPressedKeys = inputQueue.keyPress(pressedKeys);
+
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (newlyPressedKeys.Contains(Keys.Escape))
+            {
                 this.Exit();
+            }
+
+            if (newlyPressedKeys.Contains(Keys.Left))
+            {
+                blockPos.X--;
+            }
+
+            if (newlyPressedKeys.Contains(Keys.Right))
+            {
+                blockPos.X++;
+            }
 
             // TODO: Add your update logic here
             if ((DateTime.Now - lastUpdateTime).TotalMilliseconds > 500)
