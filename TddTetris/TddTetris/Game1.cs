@@ -18,9 +18,9 @@ namespace TddTetris
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D block;
+        private Texture2D blockTexture;
         private DateTime lastUpdateTime;
-        private Vector2 blockPos;
+
         private int numberOfRows;
         private Field field;
         private InputQueue inputQueue;
@@ -44,7 +44,6 @@ namespace TddTetris
             base.Initialize();
 
             lastUpdateTime = DateTime.Now;
-            blockPos = new Vector2(0, 0);
             inputQueue = new InputQueue();
         }
 
@@ -58,9 +57,9 @@ namespace TddTetris
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            block = Content.Load<Texture2D>("Block");
+            blockTexture = Content.Load<Texture2D>("Block");
 
-            numberOfRows = (GraphicsDevice.Viewport.Height - 60)/ block.Height;
+            numberOfRows = (GraphicsDevice.Viewport.Height - 60)/ blockTexture.Height;
 
             field = new Field(12, numberOfRows);
         }
@@ -85,6 +84,7 @@ namespace TddTetris
             var pressedKeys = keyState.GetPressedKeys().ToList<Keys>();
 
             List<Keys> newlyPressedKeys = inputQueue.keyPress(pressedKeys);
+            bool shouldAdvance = (DateTime.Now - lastUpdateTime).TotalMilliseconds > 500;
 
             // Allows the game to exit
             if (newlyPressedKeys.Contains(Keys.Escape))
@@ -94,24 +94,18 @@ namespace TddTetris
 
             if (newlyPressedKeys.Contains(Keys.Left))
             {
-                blockPos.X--;
+                field.MoveBlockLeft();
             }
 
             if (newlyPressedKeys.Contains(Keys.Right))
             {
-                blockPos.X++;
+                field.MoveBlockRight();
             }
 
             // TODO: Add your update logic here
             if ((DateTime.Now - lastUpdateTime).TotalMilliseconds > 500)
             {
-                blockPos.Y++;
-                if (blockPos.Y >= numberOfRows)
-                {
-                    blockPos.Y = 0;
-                    blockPos.X++;
-                }
-
+                field.AdvanceBlock();
 
                 lastUpdateTime = DateTime.Now;
                 base.Update(gameTime);
@@ -126,13 +120,27 @@ namespace TddTetris
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(block, new Rectangle((int)blockPos.X*block.Width, (int)blockPos.Y*block.Height, block.Width, block.Height), Color.White);
-            spriteBatch.End();
+            DrawField();
 
             base.Draw(gameTime);
+        }
+
+        private void DrawField()
+        {
+            spriteBatch.Begin();
+            for (int x = 0; x < field.Width; x++)
+            {
+                for (int y = 0; y < field.Height; y++)
+                {
+                    Color? color = field.ColorAt(new Vector2(x, y));
+
+                    if (color.HasValue)
+                    {
+                        spriteBatch.Draw(blockTexture, new Rectangle((int)x * blockTexture.Width, (int)y * blockTexture.Height, blockTexture.Width, blockTexture.Height), color.Value);
+                    }
+                }
+            }
+            spriteBatch.End();
         }
     }
 }
