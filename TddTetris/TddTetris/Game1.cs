@@ -24,6 +24,7 @@ namespace TddTetris
         private int numberOfRows;
         private Field field;
         private InputQueue inputQueue;
+        private GameMechanics gameMechanics;
 
         public Game1()
         {
@@ -62,6 +63,7 @@ namespace TddTetris
             numberOfRows = (GraphicsDevice.Viewport.Height - 60)/ blockTexture.Height;
 
             field = new Field(12, numberOfRows);
+            gameMechanics = new GameMechanics(field);
         }
 
         /// <summary>
@@ -92,24 +94,16 @@ namespace TddTetris
                 this.Exit();
             }
 
-            if (newlyPressedKeys.Contains(Keys.Left))
-            {
-                field.MoveBlockLeft();
-            }
+            gameMechanics.HandleInput(newlyPressedKeys);
 
-            if (newlyPressedKeys.Contains(Keys.Right))
-            {
-                field.MoveBlockRight();
-            }
-
-            // TODO: Add your update logic here
-            if ((DateTime.Now - lastUpdateTime).TotalMilliseconds > 500)
+            if (shouldAdvance)
             {
                 field.AdvanceBlock();
 
                 lastUpdateTime = DateTime.Now;
-                base.Update(gameTime);
             }
+
+            base.Update(gameTime);
         }
 
         /// <summary>
