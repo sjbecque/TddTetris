@@ -19,6 +19,10 @@ Global
 		{FE03EC57-193C-4A0D-A7B5-A836AD3336C3}.Release|x86.Build.0 = Release|x86
 		{7496C228-21BB-4843-9FC7-2E4963129580}.Debug|x86.ActiveCfg = Debug|x86
 		{7496C228-21BB-4843-9FC7-2E4963129580}.Release|x86.ActiveCfg = Release|x86
+		{4AE710E9-1C6A-40E4-84B7-24CAECBD815D}.Debug|x86.ActiveCfg = Debug|x86
+		{4AE710E9-1C6A-40E4-84B7-24CAECBD815D}.Debug|x86.Build.0 = Debug|x86
+		{4AE710E9-1C6A-40E4-84B7-24CAECBD815D}.Release|x86.ActiveCfg = Release|x86
+		{4AE710E9-1C6A-40E4-84B7-24CAECBD815D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
