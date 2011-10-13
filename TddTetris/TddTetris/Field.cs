@@ -50,9 +50,19 @@ namespace TddTetris
             Position = new Vector2(Position.X, Position.Y + 1);
         }
 
+        public bool CanMoveLeft()
+        {
+            return Position.X > 0;
+        }
+
         public void MoveBlockLeft()
         {
             Position = new Vector2(Position.X - 1, Position.Y);
+        }
+
+        public bool CanMoveRight()
+        {
+            return Position.X < Width - 1;
         }
 
         public void MoveBlockRight()

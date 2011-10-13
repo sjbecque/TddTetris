@@ -21,12 +21,12 @@ namespace TddTetris
         {
             if (input.IndexOf(Keys.Left) > -1)
             {
-                field.MoveBlockLeft();
+                MoveLeftIfPossible();
             }
 
             if (input.IndexOf(Keys.Right) > -1)
             {
-                field.MoveBlockRight();
+                MoveRightIfPossible();
             }
         }
 
@@ -40,6 +40,22 @@ namespace TddTetris
             {
                 field.FixBlock();
                 field.SetBlock( new Block(), new Vector2(field.Width / 2, 0) );
+            }
+        }
+
+        public void MoveLeftIfPossible()
+        {
+            if (field.CanMoveLeft())
+            {
+                field.MoveBlockLeft();
+            }
+        }
+
+        public void MoveRightIfPossible()
+        {
+            if (field.CanMoveRight())
+            {
+                field.MoveBlockRight();
             }
         }
     }
