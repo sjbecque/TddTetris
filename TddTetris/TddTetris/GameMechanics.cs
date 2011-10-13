@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
 
 namespace TddTetris
 {
     public class GameMechanics
     {
-        private readonly Field field;
+        private readonly IField field;
 
-        public GameMechanics(Field field)
+        public GameMechanics(IField field)
         {
             this.field = field;
         }
