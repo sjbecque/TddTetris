@@ -59,5 +59,14 @@ namespace TddTetris
         {
             Position = new Vector2(Position.X + 1, Position.Y);
         }
+
+        public bool CanAdvance()
+        {
+            return Position.Y < Height - 1;
+        }
+
+        public void FixBlock()
+        {
+        }
     }
 }

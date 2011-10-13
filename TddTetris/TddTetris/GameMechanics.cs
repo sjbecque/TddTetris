@@ -29,5 +29,18 @@ namespace TddTetris
                 field.MoveBlockRight();
             }
         }
+
+        public void AdvanceIfPossible()
+        {
+            if (field.CanAdvance())
+            {
+                field.AdvanceBlock();
+            }
+            else
+            {
+                field.FixBlock();
+                field.SetBlock( new Block(), new Vector2(field.Width / 2, 0) );
+            }
+        }
     }
 }

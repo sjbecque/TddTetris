@@ -98,7 +98,7 @@ namespace TddTetris
 
             if (shouldAdvance)
             {
-                field.AdvanceBlock();
+                gameMechanics.AdvanceIfPossible();
 
                 lastUpdateTime = DateTime.Now;
             }

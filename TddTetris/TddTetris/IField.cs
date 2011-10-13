@@ -14,7 +14,11 @@ namespace TddTetris
 
         void MoveBlockRight();
 
+        bool CanAdvance();
+
         void AdvanceBlock();
+
+        void FixBlock();
 
         void SetBlock(Block block, Vector2 position);
     }
