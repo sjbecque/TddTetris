@@ -25,6 +25,7 @@ namespace TddTetris
         private Field field;
         private InputQueue inputQueue;
         private GameMechanics gameMechanics;
+        private Texture2D emptyBackgroundTexture;
 
         public Game1()
         {
@@ -59,6 +60,9 @@ namespace TddTetris
 
             // TODO: use this.Content to load your game content here
             blockTexture = Content.Load<Texture2D>("Block");
+
+            emptyBackgroundTexture = new Texture2D(GraphicsDevice, 1, 1);
+            emptyBackgroundTexture.SetData(new Color[] { Color.White });
 
             numberOfRows = (GraphicsDevice.Viewport.Height - 60)/ blockTexture.Height;
 
@@ -122,6 +126,9 @@ namespace TddTetris
         private void DrawField()
         {
             spriteBatch.Begin();
+
+            drawEmptyBackground( spriteBatch );
+
             for (int x = 0; x < field.Width; x++)
             {
                 for (int y = 0; y < field.Height; y++)
@@ -134,7 +141,15 @@ namespace TddTetris
                     }
                 }
             }
+
             spriteBatch.End();
+        }
+
+        private void drawEmptyBackground( SpriteBatch spriteBatch )
+        {
+            Rectangle fieldOutline = new Rectangle(0, 0, field.Width * blockTexture.Width, field.Height * blockTexture.Height);
+
+            spriteBatch.Draw(emptyBackgroundTexture, fieldOutline, Color.Black);
         }
     }
 }
