@@ -108,8 +108,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
+    <Compile Include="BlockFactory.cs" />
+    <Compile Include="IBlock.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="GameMechanics.cs" />
+    <Compile Include="IBlockFactory.cs" />
     <Compile Include="IField.cs" />
     <Compile Include="IGameMechanics.cs" />
     <Compile Include="InputQueue.cs" />

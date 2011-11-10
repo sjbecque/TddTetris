@@ -35,11 +35,11 @@ namespace TddTetris
             return null;
         }
 
-        public Block Block { get; private set; }
+        public IBlock Block { get; private set; }
 
         public Vector2 Position { get; private set; }
 
-        public void SetBlock(Block block, Vector2 position)
+        public void SetBlock(IBlock block, Vector2 position)
         {
             this.Block = block;
             this.Position = position;

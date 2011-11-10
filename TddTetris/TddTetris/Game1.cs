@@ -67,7 +67,7 @@ namespace TddTetris
             numberOfRows = (GraphicsDevice.Viewport.Height - 60)/ blockTexture.Height;
 
             field = new Field(12, numberOfRows);
-            gameMechanics = new GameMechanics(field);
+            gameMechanics = new GameMechanics(field, new BlockFactory());
         }
 
         /// <summary>

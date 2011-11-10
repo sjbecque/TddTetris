@@ -24,6 +24,6 @@ namespace TddTetris
 
         void FixBlock();
 
-        void SetBlock(Block block, Vector2 position);
+        void SetBlock(IBlock block, Vector2 position);
     }
 }

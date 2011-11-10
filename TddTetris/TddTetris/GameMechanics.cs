@@ -11,10 +11,12 @@ namespace TddTetris
     public class GameMechanics
     {
         private readonly IField field;
+        private readonly IBlockFactory blockFactory;
 
-        public GameMechanics(IField field)
+        public GameMechanics(IField field, IBlockFactory blockFactory)
         {
             this.field = field;
+            this.blockFactory = blockFactory;
         }
 
         public void HandleInput(List<Keys> input)
@@ -39,7 +41,7 @@ namespace TddTetris
             else
             {
                 field.FixBlock();
-                field.SetBlock( new Block(), new Vector2(field.Width / 2, 0) );
+                field.SetBlock( blockFactory.MakeBlock(), new Vector2(field.Width / 2, 0) );
             }
         }
 
