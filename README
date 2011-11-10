@@ -1,1 +1,9 @@
-De voorbeeldcode voor het Technisch Testen-traject.
+De huiswerkopdracht voor het Technisch Testen-traject.
+
+Benodigdheden:
+
+Een Windows PC met:
+- TortoiseGit: http://code.google.com/p/tortoisegit/downloads/list (of een andere git-implementatie)
+- Visual Studio Express 2010 (C#): http://www.microsoft.com/visualstudio/en-us/products/2010-editions/express
+- XNA-framework: http://www.microsoft.com/download/en/confirmation.aspx?id=23714
+- NUnit: http://www.nunit.org/?p=download .. Kies wel de goede NUnit runtime! (x86 vs x64)
