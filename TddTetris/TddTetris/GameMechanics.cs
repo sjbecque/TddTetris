@@ -30,6 +30,11 @@ namespace TddTetris
             {
                 MoveRightIfPossible();
             }
+
+            if (input.IndexOf(Keys.Space) > -1)
+            {
+                field.FixBlock();
+            }
         }
 
         public void AdvanceIfPossible()
