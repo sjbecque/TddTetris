@@ -7,3 +7,8 @@ Een Windows PC met:
 - Visual Studio Express 2010 (C#): http://www.microsoft.com/visualstudio/en-us/products/2010-editions/express
 - XNA-framework: http://www.microsoft.com/download/en/confirmation.aspx?id=23714
 - NUnit: http://www.nunit.org/?p=download .. Kies wel de goede NUnit runtime! (x86 vs x64)
+
+Aantekeningen:
+- Game1 bevat de main loop. Hier zouden jullie niet heel veel aan hoeven veranderen.
+- GameMechanics heeft eigenlijk een wat betere naam nodig. Suggesties zijn welkom.
+- Voeg zoveel classes en/of interfaces toe als nodig om alles testbaar te houden.
