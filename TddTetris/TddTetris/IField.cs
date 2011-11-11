@@ -11,19 +11,15 @@ namespace TddTetris
         int Width { get; }
 
         bool CanMoveLeft();
-
         void MoveBlockLeft();
 
         bool CanMoveRight();
-
         void MoveBlockRight();
 
         bool CanAdvance();
-
         void AdvanceBlock();
 
-        void FixBlock();
-
         void SetBlock(IBlock block, Vector2 position);
+        void FixBlock();
     }
 }

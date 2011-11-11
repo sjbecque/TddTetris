@@ -11,6 +11,9 @@ namespace TddTetris
         public int Width { get; private set; }
         public int Height { get; private set; }
 
+        public IBlock Block { get; private set; }
+        public Vector2 Position { get; private set; }
+
         public Field(int width, int height)
         {
             this.Width = width;
@@ -34,10 +37,6 @@ namespace TddTetris
 
             return null;
         }
-
-        public IBlock Block { get; private set; }
-
-        public Vector2 Position { get; private set; }
 
         public void SetBlock(IBlock block, Vector2 position)
         {

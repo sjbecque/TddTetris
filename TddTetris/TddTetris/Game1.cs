@@ -19,13 +19,14 @@ namespace TddTetris
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private Texture2D blockTexture;
+        private Texture2D emptyBackgroundTexture;
+
         private DateTime lastUpdateTime;
 
         private int numberOfRows;
         private Field field;
         private InputQueue inputQueue;
         private GameMechanics gameMechanics;
-        private Texture2D emptyBackgroundTexture;
 
         public Game1()
         {
