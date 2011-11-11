@@ -11,6 +11,6 @@ namespace TddTetris
         void RotateLeft();
         void RotateRight();
 
-        Color ColorAt(int x, int y);
+        Color? ColorAt(int x, int y);
     }
 }
