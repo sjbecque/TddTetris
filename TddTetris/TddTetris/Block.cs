@@ -18,7 +18,7 @@ namespace TddTetris
             throw new NotImplementedException();
         }
 
-        public Color? ColorAt(int x, int y)
+        public Color? ColorAt(Vector2 position)
         {
             throw new NotImplementedException();
         }
