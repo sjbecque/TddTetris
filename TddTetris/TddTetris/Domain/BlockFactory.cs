@@ -9,7 +9,7 @@ namespace TddTetris
     {
         public IBlock MakeBlock()
         {
-            return new Block();
+            return new Block(4,4);
         }
     }
 }
