@@ -8,14 +8,12 @@ namespace TddTetris
 {
     public interface IBlock
     {
-        List<Vector2> vectors { get; }
-        Square squareType { get; }
-        void RotateLeft();
-        void RotateRight();
+        List<Vector2> vectors { get; set; } //ToSelf: was private!
+        Square squareType { get; set; } //ToSelf: was private!
 
         void RotateClockwise();
         void RotateCounterClockwise();
 
-        Color? ColorAt(Vector2 position);
+        //Color? ColorAt(Vector2 position);
     }
 }

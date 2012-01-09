@@ -8,10 +8,10 @@ namespace TddTetris
 {
     public class Block : IBlock
     {
-        public List<Vector2> vectors { get; private set; }
-        public Square squareType { get; private set; }
+        public List<Vector2> vectors { get; set; } //ToSelf: was private!
+        public Square squareType { get; set; } //ToSelf: was private!
 
-        public Block(int width, int height)
+        public Block() //(int width, int height) ???
         {
             //width, height??
 
@@ -25,18 +25,13 @@ namespace TddTetris
             vectors.Add(new Vector2(0, 1));            
         }
 
-        public Color? ColorAt(Vector2 position)
-        {
-            //nog nodig?
-            throw new NotImplementedException();
-        }
 
         public void RotateClockwise()
         {
             var newVectors = new List<Vector2>();
             foreach (var oldVector in vectors)
             { 
-                newVectors.Add(new Vector2(oldVector.Y,-oldVector.X));
+                newVectors.Add(new Vector2(-oldVector.Y,oldVector.X));
             }
             vectors = newVectors;
         }
@@ -45,20 +40,18 @@ namespace TddTetris
             var newVectors = new List<Vector2>();
             foreach (var oldVector in vectors)
             {
-                newVectors.Add(new Vector2(-oldVector.Y, oldVector.X));
+                newVectors.Add(new Vector2(oldVector.Y, -oldVector.X));
             }
             vectors = newVectors;
         }
         //methodes kun je natuurlijk samenvoegen..
 
-        //naamgeving ambigue?
-        public void RotateLeft()
-        {
-            throw new NotImplementedException();
-        }
-        public void RotateRight()
-        {
-            throw new NotImplementedException();
-        }
+
+
+        //public Color? ColorAt(Vector2 position)
+        //{
+        //    //nog nodig?
+        //    throw new NotImplementedException();
+        //}
     }
 }

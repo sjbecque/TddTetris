@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TddTetris
 {
+    using Grid = GridBase<Square>;
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -58,7 +60,7 @@ namespace TddTetris
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+           
             // TODO: use this.Content to load your game content here
             blockTexture = Content.Load<Texture2D>("Block");
 
@@ -121,26 +123,23 @@ namespace TddTetris
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             DrawField();
-
+            
             base.Draw(gameTime);
         }
         private void DrawField()
         {
             spriteBatch.Begin();
-
             drawEmptyBackground( spriteBatch );
             
-            var grid = field.getSuperposition();
+            Grid grid = field.getSuperposition();
+
             for (int x = 0; x < field.Width; x++)
             {
                 for (int y = 0; y < field.Height; y++)
                 {
-                    Color color = grid[x, y].color; //Color? color = field.ColorAt(new Vector2(x, y));                    
-
-                    //if (color.HasValue)
-                    //{
-                        spriteBatch.Draw(blockTexture, new Rectangle((int)x * blockTexture.Width, (int)y * blockTexture.Height, blockTexture.Width, blockTexture.Height), color); // color.Value);
-                    //}
+                    spriteBatch.Draw(blockTexture,
+                        new Rectangle((int)x * blockTexture.Width, (int)y * blockTexture.Height, blockTexture.Width, blockTexture.Height),
+                        grid[y, x].color); // color.Value); //Color? color = field.ColorAt(new Vector2(x, y));             
                 }
             }
 
@@ -149,7 +148,7 @@ namespace TddTetris
         private void drawEmptyBackground( SpriteBatch spriteBatch )
         {
             Rectangle fieldOutline = new Rectangle(0, 0, field.Width * blockTexture.Width, field.Height * blockTexture.Height);
-
+            
             spriteBatch.Draw(emptyBackgroundTexture, fieldOutline, Color.Black);
         }
         #endregion

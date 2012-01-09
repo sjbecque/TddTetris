@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4AE710E9-1C6A-40E4-84B7-24CAECBD815D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{30AB3D52-A83C-451C-8C42-FA44D38E4A91}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>TestConsole</RootNamespace>
+    <AssemblyName>TestConsole</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,9 +33,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LaunchNUnit|x86'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\LaunchNUnit\</OutputPath>
@@ -49,25 +45,34 @@
     <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
-    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>moq-NET40\Moq.dll</HintPath>
+      <HintPath>C:\WINDOWS-apps\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\Tests\moq-NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS-apps\NUnit 2.5.10\bin\net-2.0\framework\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TddTetris\TddTetris\TddTetris.csproj">
       <Project>{FE03EC57-193C-4A0D-A7B5-A836AD3336C3}</Project>
       <Name>TddTetris</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="FieldTest.cs" />
-    <Compile Include="Tests_Facilities\GridTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

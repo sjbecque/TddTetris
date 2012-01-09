@@ -14,8 +14,7 @@ namespace TddTetris
         public static readonly Square Bar = new Square(Color.Blue, 30);
 
         public Color color;
-        public int points;
-        //etc..
+        public int points; //etc..
 
         private Square(Color color, int points)
         {

@@ -24,61 +24,43 @@ namespace TddTetris
         {
             if (input.IndexOf(Keys.Left) > -1)
             {
-                MoveLeftIfPossible();
+                field.Move(Movement.Left);
             }
 
             if (input.IndexOf(Keys.Right) > -1)
             {
-                MoveRightIfPossible();
+                field.Move(Movement.Right);
             }
 
             if (input.IndexOf(Keys.Space) > -1)
             {
-                field.FixBlock(); //moet nog via advanceIfPossible?
+                //field.FixBlock();
             }
 
             if (input.IndexOf(Keys.PageDown) > -1)
             {
-                field.RotateClockwise();
+                field.Move(Movement.RotateClockwise);
             }
 
             if (input.IndexOf(Keys.Delete) > -1)
             {
-                field.RotateCounterClockwise();
+                field.Move(Movement.RotateCounterClockwise);
             }
         }
 
         public void AdvanceIfPossible()
         {
-            if (field.CanAdvance())
+            bool newBlockShouldBeInserted = field.Move(Movement.Down);
+
+            if (newBlockShouldBeInserted)
             {
-                field.AdvanceBlock();
-            }
-            else
-            {
-                field.FixBlock();
                 StartNewBlock();
             }
         }
-
-        public void MoveLeftIfPossible()
-        {
-            if (field.CanMoveLeft())
-            {
-                field.MoveBlockLeft();
-            }
-        }
-        public void MoveRightIfPossible()
-        {
-            if (field.CanMoveRight())
-            {
-                field.MoveBlockRight();
-            }
-        }
-
+        
         private void StartNewBlock()
         {
-            field.SetBlock(blockFactory.MakeBlock(), new Vector2(field.Width / 2, 0));
+            field.SetBlock(blockFactory.MakeBlock(), new Vector2(field.Width / 2, 3));
         }
     }
 }

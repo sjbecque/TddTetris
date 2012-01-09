@@ -59,6 +59,18 @@
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LaunchNUnit|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\LaunchNUnit\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
@@ -109,9 +121,12 @@
   <ItemGroup>
     <Compile Include="Domain\Block.cs" />
     <Compile Include="Domain\BlockFactory.cs" />
+    <Compile Include="Domain\SquareGrid.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Facilities\Grid.cs" />
     <Compile Include="Domain\Square.cs" />
     <Compile Include="Facilities\ExtensionMethods.cs" />
-    <Compile Include="Facilities\General.cs" />
+    <Compile Include="Facilities\V2.cs" />
     <Compile Include="Interfaces\IBlock.cs" />
     <Compile Include="Domain\Field.cs" />
     <Compile Include="Domain\GameMechanics.cs" />
@@ -128,8 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TddTetrisContent\TddTetrisContent.contentproj">
-      <Name>TddTetrisContent</Name>
+      <Name>TddTetrisContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{7496C228-21BB-4843-9FC7-2E4963129580}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +174,9 @@
       <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
